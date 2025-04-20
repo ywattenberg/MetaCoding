@@ -20,6 +20,7 @@ class Solution:
             last = self.recurse(node)
             last.right = node.right
             node.right = node.left
+            node.left = None
             return self.recurse(last.right) if last.right else last
         else:
             return self.recurse(node.right) if node.right else node
@@ -28,5 +29,7 @@ class Solution:
         """
         Do not return anything, modify root in-place instead.
         """
-        if not root:
+        if root == None:
             return root
+        else:
+            return self.recurse(root)
